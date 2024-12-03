@@ -9,28 +9,31 @@ local function check_for_valid_ts_field(line)
 	-- 	return false
 	-- end
 
-	local visibility = line:match("^(%s*(public|private|protected))")
-	if visibility then
-		print("Visibility modifier found: " .. visibility)
-	else
-		print("No visibility modifier found.")
+	for w in string.gmatch(line, "%a+") do
+		print(w)
 	end
 
-	-- Step 2: Check for field name
-	local field_name = string.match(line, "readonly")
-	if field_name then
-		print("Field name found: " .. field_name)
-	else
-		print("No field name found.")
-	end
-
-	-- Step 3: Check for type annotation
-	local type_annotation = line:match(":%s*([%w%s]+)")
-	if type_annotation then
-		print("Type annotation found: " .. type_annotation)
-	else
-		print("No type annotation found.")
-	end
+	-- if wordInLine. then
+	-- 	print("Visibility modifier found: " .. visibility)
+	-- else
+	-- 	print("No visibility modifier found.")
+	-- end
+	--
+	-- -- Step 2: Check for field name
+	-- local field_name = string.match(line, "readonly")
+	-- if field_name then
+	-- 	print("Field name found: " .. field_name)
+	-- else
+	-- 	print("No field name found.")
+	-- end
+	--
+	-- -- Step 3: Check for type annotation
+	-- local type_annotation = line:match(":%s*([%w%s]+)")
+	-- if type_annotation then
+	-- 	print("Type annotation found: " .. type_annotation)
+	-- else
+	-- 	print("No type annotation found.")
+	-- end
 
 	return true
 end
